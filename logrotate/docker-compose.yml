@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  logrotate:
+    image: blacklabelops/logrotate
+    container_name: logrotate
+    restart: always
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers
+      - /var/log/docker:/var/log/docker
+    environment:
+      - LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker
+      - LOGROTATE_SIZE=20M
+      - LOGROTATE_INTERVAL=weekly

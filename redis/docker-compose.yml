@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    #    command: ["redis-server", "--appendonly", "yes"]
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      backend:
+        aliases:
+          - redis
+    volumes:
+      - ./data:/data
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+
+# docker network create -d=overlay --attachable backend
+networks:
+  backend:
+    external:
+      name: backend
