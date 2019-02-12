@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  ssclient:
+    image: mritd/shadowsocks:latest
+    container_name: ssclient
+    restart: always
+    ports:
+      - "1080:1080"
+    command: -m "ss-local" -s "-s 172.105.236.191 -p 6443 -b 0.0.0.0 -l 1080 -m aes-256-cfb -k autumn.00 --fast-open"
