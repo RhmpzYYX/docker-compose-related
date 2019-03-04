@@ -2,14 +2,16 @@ version: '3.7'
 
 services:
   rabbitmq:
+    build:
+      context: ./build
 #    image: rabbitmq:3-management
-    image: my-rabbitmq:3.7
+    image: my-rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"
-    environment:
-      RABBITMQ_DEFAULT_USER: rabbitmq
-      RABBITMQ_DEFAULT_PASS: rabbitmq
+#    environment:
+#      RABBITMQ_DEFAULT_USER: rabbitmq
+#      RABBITMQ_DEFAULT_PASS: rabbitmq
     networks:
       backend:
         aliases:
