@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    hostname: yangbingdong.gitlab.com
+#    environment:
+#      GITLAB_OMNIBUS_CONFIG: |
+#        external_url 'http://yangbingdong.ngrok.ibaboss.com'
+    ports:
+      - '880:80'
+      - '8443:443'
+      - '822:22'
+    volumes:
+      - './data/config:/etc/gitlab'
+      - './data/logs:/var/log/gitlab'
+      - './data/data:/var/opt/gitlab'
