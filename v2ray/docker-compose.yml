@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - "1080:1080"
-
+      - "1080:1080/udp"
     volumes:
-      - ./config.json:/etc/v2ray/config.json
-    command: v2ray -config=/etc/v2ray/config.json
+      - ./client-config.json:/etc/v2ray/config.json
+    command: ["v2ray", "-config=/etc/v2ray/config.json"]
