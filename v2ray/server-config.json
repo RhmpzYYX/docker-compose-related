@@ -1,7 +1,7 @@
 {
     "log":{
-        "access":"",
-        "error":"",
+        "access": "",
+        "error": "",
         "loglevel":"warning"
     },
     "inbounds":[
@@ -37,7 +37,7 @@
                     "readBufferSize":2,
                     "writeBufferSize":2,
                     "header":{
-                        "type":"srtp"
+                        "type":"wechat-video"
                     }
                 },
                 "wsSettings":{

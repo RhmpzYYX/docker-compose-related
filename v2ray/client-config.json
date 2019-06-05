@@ -23,7 +23,7 @@
             "settings":{
                 "vnext":[
                     {
-                        "address":"YOUR_VPS_IP",
+                        "address":"YOUR_SERVER_IP",
                         "port":23333,
                         "users":[
                             {
@@ -55,7 +55,7 @@
                     "readBufferSize":2,
                     "writeBufferSize":2,
                     "header":{
-                        "type":"srtp"
+                        "type":"wechat-video"
                     }
                 },
                 "wsSettings":{
@@ -111,13 +111,6 @@
                     "geoip:cn"
                 ],
                 "outboundTag":"direct"
-            },
-            {
-                "type":"field",
-                "protocol":[
-                    "bittorrent"
-                ],
-                "outboundTag":"blocked"
             }
         ]
     }
