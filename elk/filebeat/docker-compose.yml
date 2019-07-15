@@ -1,0 +1,28 @@
+version: '3'
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.1.1
+#    ports:
+#      - "9200:9200"
+    restart: always
+#    environment:
+#     - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+    - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+    - /home/ybd/data/git-repo/bitbucket/central-city/cc-component/cc-example/log4j2Logs:/log4j2Logs
+    deploy:
+      placement:
+        constraints:
+        - node.role == manager
+    networks:
+      backend:
+        aliases:
+          - filebeat
+
+# docker network create -d=overlay --attachable backend
+# docker network create --opt encrypted -d=overlay --attachable --subnet 10.10.0.0/16 backend
+networks:
+  backend:
+    external:
+      name: backend
+

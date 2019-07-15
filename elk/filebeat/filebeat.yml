@@ -1,0 +1,18 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /log4j2Logs/example/all.log
+  multiline:
+    pattern: ^\d{4} # 多行处理，正则表示如果前面几个数字不是4个数字开头，那么就会合并到一行
+    negate: true # 正则是否开启，默认false不开启
+    match: after # 不匹配的正则的行是放在上面一行的前面还是后面
+  fields:      # 在采集的信息中添加一个自定义字段 service
+    service: example
+
+
+output.logstash:
+  hosts: ["logstash:5044"]
+#output.console:
+#  pretty: true
+

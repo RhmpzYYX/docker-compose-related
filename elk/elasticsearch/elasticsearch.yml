@@ -1,0 +1,5 @@
+discovery.type: "single-node"
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+discovery.zen.minimum_master_nodes: 1
+#xpack.security.enabled: false # 不启用密码登陆
