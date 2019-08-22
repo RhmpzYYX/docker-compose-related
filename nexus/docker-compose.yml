@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  nexus:
+    image: sonatype/nexus3
+    restart: always
+    ports:
+      - "9091:8081"
+    environment:
+      - INSTALL4J_ADD_VM_PARAMS=-Xms512m -Xmx512m
+      - TZ=Asia/Shanghai
+    volumes:
+      - nexus-data:/nexus-data
+
+# docker volume create nexus-data
+volumes:
+  nexus-data:
+    external: true
