@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  v2ray:
+    image: trojangfw/trojan
+    container_name: trojan
+    restart: always
+    ports:
+      - "1081:1080"
+    volumes:
+      - ./config:/config
